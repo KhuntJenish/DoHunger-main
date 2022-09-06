@@ -24,355 +24,358 @@ class SVolHomne extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SingleChildScrollView(
-            physics: defaultPhysics,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 270,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Visitors Overview',
-                      style: TextThemeX.text16.copyWith(
-                          fontFamily: getInterFontFamily,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Last 30 days',
-                          style: TextThemeX.text12
-                              .copyWith(color: const Color(0xff9A9A9A)),
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        selectIcon(AppIcons.arrowDown),
-                      ],
-                    )
-                  ],
-                ).horizontal20,
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 17, 14, 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+          const _AppBar(),
+          Positioned(
+            top: Get.height * 0.35,
+            child: SingleChildScrollView(
+              physics: defaultPhysics,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      selectImage(AppImages.donationOverViewImg,
-                          fit: BoxFit.cover, height: 180, width: 180),
-                      SizedBox(
-                        width: 10,
+                      Text(
+                        'Visitors Overview',
+                        style: TextThemeX.text16.copyWith(
+                            fontFamily: getInterFontFamily,
+                            fontWeight: FontWeight.w700),
                       ),
-                      Column(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _DonationRatioItemWise(
-                            donationType: 'Book',
-                            trandGraph: selectImage(AppImages.graphlineBlueImg,
-                                width: 69, height: 92),
+                          Text(
+                            'Last 30 days',
+                            style: TextThemeX.text12
+                                .copyWith(color: const Color(0xff9A9A9A)),
                           ),
                           const SizedBox(
-                            height: 15,
+                            width: 8,
                           ),
-                          _DonationRatioItemWise(
-                            donationType: 'Toy',
-                            trandGraph: selectImage(AppImages.graphlineRedImg,
-                                width: 69, height: 92),
-                          ),
+                          selectIcon(AppIcons.arrowDown),
                         ],
                       )
                     ],
-                  ),
-                ),
-                _TopWidget(
-                  title: 'My Organization ',
-                  onPressed: () {},
-                ).horizontal20,
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    border: Border.all(color: greyColor2.withOpacity(0.3)),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(14),
+                  ).horizontal20,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 17, 14, 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        selectImage(AppImages.donationOverViewImg,
+                            fit: BoxFit.cover, height: 180, width: 180),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            _DonationRatioItemWise(
+                              donationType: 'Book',
+                              trandGraph: selectImage(
+                                  AppImages.graphlineBlueImg,
+                                  width: 69,
+                                  height: 92),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            _DonationRatioItemWise(
+                              donationType: 'Toy',
+                              trandGraph: selectImage(AppImages.graphlineRedImg,
+                                  width: 69, height: 92),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 54,
-                        width: 54,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: selectImage(
-                            AppImages.favourite,
-                            height: 54,
-                            width: 54,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Create Organization',
-                            style: TextThemeX.text16.copyWith(
-                                color: greyColor2, fontWeight: FontWeight.w600),
-                          ),
-                          FittedBox(
-                            child: Text(
-                              'Create your organization and support.',
-                              style: TextThemeX.text10.copyWith(
-                                color: greyColor2.withOpacity(0.3),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ).horizontal20,
-                SizedBox(
-                  height: 300,
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 16),
-                    physics: defaultPhysics,
-                    itemCount: 3,
-                    itemBuilder: ((context, index) => Container(
-                          padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
-                          decoration: BoxDecoration(
-                            color: whiteColor,
-                            border:
-                                Border.all(color: greyColor2.withOpacity(0.3)),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(14),
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 54,
-                                width: 54,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  child: selectImage(
-                                    AppImages.bannerImg,
-                                    height: 54,
-                                    width: 54,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Special Needs',
-                                    style: TextThemeX.text16.copyWith(
-                                        color: greyColor2,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Text(
-                                    '32 Volunteers',
-                                    style: TextThemeX.text12.copyWith(
-                                      color: greyColor2.withOpacity(0.3),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Spacer(),
-                              Container(
-                                padding: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  // gradient: LinearGradient(colors: [Colors.black, Colors.redAccent]),
-                                  color: const Color(0xffF2F2F2),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text('2'),
-                              ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.more_vert),
-                              )
-                            ],
-                          ),
-                        )),
+                  _TopWidget(
+                    title: 'My Organization ',
+                    onPressed: () {},
                   ).horizontal20,
-                ),
-                _TopWidget(
-                  title: 'Top Group',
-                  onPressed: () => Get.toNamed(STopGroups.routeName),
-                ).horizontal20,
-                const SizedBox(
-                  height: 20,
-                ),
-                SingleChildScrollView(
-                    physics: defaultPhysics,
-                    scrollDirection: Axis.horizontal,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Row(
-                        children: const [
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar(),
-                          _GroupAvatar()
-                        ],
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+                    decoration: BoxDecoration(
+                      color: whiteColor,
+                      border: Border.all(color: greyColor2.withOpacity(0.3)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(14),
                       ),
-                    )),
-                const SizedBox(
-                  height: 40,
-                ),
-                _TopWidget(
-                  title: 'Donor',
-                  onPressed: () => Get.toNamed(STopDonors.routeName),
-                ).horizontal20,
-                const SizedBox(
-                  height: 10,
-                ),
-                SingleChildScrollView(
-                  physics: defaultPhysics,
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                    child: Row(
                       children: [
-                        Row(
-                          children: const [
-                            SizedBox(
-                              width: 75,
+                        Container(
+                          height: 54,
+                          width: 54,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            child: selectImage(
+                              AppImages.favourite,
+                              height: 54,
+                              width: 54,
+                              fit: BoxFit.contain,
                             ),
-                            _DoneorChip(),
-                            _DoneorChip(),
-                            _DoneorChip()
-                          ],
+                          ),
                         ),
-                        Row(
-                          children: const [
-                            _DoneorChip(),
-                            _DoneorChip(),
-                            _DoneorChip()
-                          ],
+                        const SizedBox(
+                          width: 10,
                         ),
-                        Row(
-                          children: const [
-                            SizedBox(
-                              width: 95,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Create Organization',
+                              style: TextThemeX.text16.copyWith(
+                                  color: greyColor2,
+                                  fontWeight: FontWeight.w600),
                             ),
-                            _DoneorChip(),
-                            _DoneorChip(),
-                            _DoneorChip()
+                            FittedBox(
+                              child: Text(
+                                'Create your organization and support.',
+                                style: TextThemeX.text10.copyWith(
+                                  color: greyColor2.withOpacity(0.3),
+                                ),
+                              ),
+                            )
                           ],
                         ),
                       ],
                     ),
+                  ).horizontal20,
+                  SizedBox(
+                    height: 300,
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 16),
+                      physics: defaultPhysics,
+                      itemCount: 3,
+                      itemBuilder: ((context, index) => Container(
+                            padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+                            decoration: BoxDecoration(
+                              color: whiteColor,
+                              border: Border.all(
+                                  color: greyColor2.withOpacity(0.3)),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(14),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 54,
+                                  width: 54,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    child: selectImage(
+                                      AppImages.bannerImg,
+                                      height: 54,
+                                      width: 54,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Special Needs',
+                                      style: TextThemeX.text16.copyWith(
+                                          color: greyColor2,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Text(
+                                      '32 Volunteers',
+                                      style: TextThemeX.text12.copyWith(
+                                        color: greyColor2.withOpacity(0.3),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                const Spacer(),
+                                Container(
+                                  padding: EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    // gradient: LinearGradient(colors: [Colors.black, Colors.redAccent]),
+                                    color: const Color(0xffF2F2F2),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Text('2'),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.more_vert),
+                                )
+                              ],
+                            ),
+                          )),
+                    ).horizontal20,
                   ),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Text(
-                  '*',
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontFamily: getCormorantGaramondFontFamily,
-                    fontWeight: FontWeight.w600,
+                  _TopWidget(
+                    title: 'Top Group',
+                    onPressed: () => Get.toNamed(STopGroups.routeName),
+                  ).horizontal20,
+                  const SizedBox(
+                    height: 20,
                   ),
-                ).horizontal20,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'The best',
-                      style: TextStyle(
-                          fontSize: 50,
-                          fontFamily: getCormorantGaramondFontFamily,
-                          fontWeight: FontWeight.w600),
+                  SingleChildScrollView(
+                      physics: defaultPhysics,
+                      scrollDirection: Axis.horizontal,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Row(
+                          children: const [
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar(),
+                            _GroupAvatar()
+                          ],
+                        ),
+                      )),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  _TopWidget(
+                    title: 'Donor',
+                    onPressed: () => Get.toNamed(STopDonors.routeName),
+                  ).horizontal20,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SingleChildScrollView(
+                    physics: defaultPhysics,
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: const [
+                              SizedBox(
+                                width: 75,
+                              ),
+                              _DoneorChip(),
+                              _DoneorChip(),
+                              _DoneorChip()
+                            ],
+                          ),
+                          Row(
+                            children: const [
+                              _DoneorChip(),
+                              _DoneorChip(),
+                              _DoneorChip()
+                            ],
+                          ),
+                          Row(
+                            children: const [
+                              SizedBox(
+                                width: 95,
+                              ),
+                              _DoneorChip(),
+                              _DoneorChip(),
+                              _DoneorChip()
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      'way happiness',
-                      style: TextStyle(
-                          fontSize: 50,
-                          fontFamily: getCormorantGaramondFontFamily,
-                          fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ).horizontal20,
-                const SizedBox(
-                  height: 30,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'The researchers could statistically prove',
-                      style: TextThemeX.text14,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    '*',
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontFamily: getCormorantGaramondFontFamily,
+                      fontWeight: FontWeight.w600,
                     ),
-                    Text(
-                      'that donating to a cause made people',
-                      style: TextThemeX.text14,
-                    ),
-                    Text(
-                      'happier. They also listed other factors that ',
-                      style: TextThemeX.text14,
-                    ),
-                    Text(
-                      'increased happiness',
-                      style: TextThemeX.text14,
-                    ),
-                  ],
-                ).horizontal20,
-                const SizedBox(
-                  height: 41,
-                ),
-                Row(
-                  children: [
-                    selectIcon(AppIcons.star),
-                    const SizedBox(
-                      width: 13,
-                    ),
-                    selectIcon(AppIcons.star),
-                  ],
-                ).horizontal20,
-                const SizedBox(
-                  height: 65,
-                )
-              ],
+                  ).horizontal20,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'The best',
+                        style: TextStyle(
+                            fontSize: 50,
+                            fontFamily: getCormorantGaramondFontFamily,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        'way happiness',
+                        style: TextStyle(
+                            fontSize: 50,
+                            fontFamily: getCormorantGaramondFontFamily,
+                            fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  ).horizontal20,
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'The researchers could statistically prove',
+                        style: TextThemeX.text14,
+                      ),
+                      Text(
+                        'that donating to a cause made people',
+                        style: TextThemeX.text14,
+                      ),
+                      Text(
+                        'happier. They also listed other factors that ',
+                        style: TextThemeX.text14,
+                      ),
+                      Text(
+                        'increased happiness',
+                        style: TextThemeX.text14,
+                      ),
+                    ],
+                  ).horizontal20,
+                  const SizedBox(
+                    height: 41,
+                  ),
+                  Row(
+                    children: [
+                      selectIcon(AppIcons.star),
+                      const SizedBox(
+                        width: 13,
+                      ),
+                      selectIcon(AppIcons.star),
+                    ],
+                  ).horizontal20,
+                  const SizedBox(
+                    height: 65,
+                  )
+                ],
+              ),
             ),
           ),
-          const _AppBar(),
           Align(
             alignment: Alignment.bottomCenter,
             child: CFlatButton(
@@ -542,88 +545,88 @@ class _AppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: setColor(lbgColor),
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(
-              20,
-              context.topPadding + 24,
-              20,
-              30,
+    return Container(
+      // color: whiteColor,
+      child: Column(
+        children: [
+          Container(
+            color: setColor(lbgColor),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                20,
+                context.topPadding + 24,
+                20,
+                30,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    child: selectImage(
+                      AppImages.profileImg1,
+                      height: 50,
+                      width: 50,
+                    ),
+                    onTap: () => Get.toNamed(SSetting.routeName),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Welcome',
+                        style: TextThemeX.text16.copyWith(
+                            fontFamily: getCormorantGaramondFontFamily,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'Dodo Ray 👋',
+                        style: TextThemeX.text16
+                            .copyWith(fontWeight: FontWeight.w700),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  selectIcon(AppIcons.notification)
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
+            decoration: BoxDecoration(
+              color: whiteColor,
+              border: Border.all(color: greyColor2.withOpacity(0.3)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(14),
+              ),
             ),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                GestureDetector(
-                  child: selectImage(
-                    AppImages.profileImg1,
-                    height: 50,
-                    width: 50,
+                Container(
+                  height: 54,
+                  width: 54,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
                   ),
-                  onTap: () => Get.toNamed(SSetting.routeName),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    child: selectImage(
+                      AppImages.donorImg,
+                      height: 54,
+                      width: 54,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: TextThemeX.text16.copyWith(
-                          fontFamily: getCormorantGaramondFontFamily,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'Dodo Ray 👋',
-                      style: TextThemeX.text16
-                          .copyWith(fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                selectIcon(AppIcons.notification)
-              ],
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
-          decoration: BoxDecoration(
-            color: whiteColor,
-            border: Border.all(color: greyColor2.withOpacity(0.3)),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(14),
-            ),
-          ),
-          child: Row(
-            children: [
-              Container(
-                height: 54,
-                width: 54,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  child: selectImage(
-                    AppImages.donorImg,
-                    height: 54,
-                    width: 54,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -653,33 +656,32 @@ class _AppBar extends StatelessWidget {
                     )
                   ],
                 ),
-              ),
-              Spacer(),
-              Image.asset(AppImages.sendImg),
-              Flexible(
-                child: VerticalDivider(
-                  thickness: 0.8,
-                  color: Colors.black,
+                Spacer(),
+                Image.asset(AppImages.sendImg),
+                const Flexible(
+                  child: VerticalDivider(
+                    thickness: 0.8,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              Image.asset(AppImages.call1Img),
-            ],
+                Image.asset(AppImages.call1Img),
+              ],
+            ),
+          ).horizontal20,
+          const SizedBox(
+            height: 20,
           ),
-        ).horizontal20,
-        SizedBox(
-          height: 20,
-        ),
-        Container(
-          color: setColor(lbgColor),
-          child: const Divider(
-            // height: ,
-            thickness: 1,
-            indent: 67,
-            endIndent: 67,
-            color: Color.fromRGBO(109, 150, 255, 44),
-          ),
-        )
-      ],
+          Container(
+            color: setColor(lbgColor),
+            child: const Divider(
+              thickness: 1,
+              indent: 67,
+              endIndent: 67,
+              color: Color.fromRGBO(109, 150, 255, 44),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
